@@ -33,6 +33,10 @@ public class Equipe implements Serializable {
         this.detailEquipe = detailEquipe;
     }
 
+    public Equipe() {
+
+    }
+
     public Long getIdEquipe() {
         return idEquipe;
     }

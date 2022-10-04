@@ -21,4 +21,8 @@ public class Departement implements Serializable {
         this.nomDepart = nomDepart;
         this.etudiants = etudiants;
     }
+
+    public Departement() {
+
+    }
 }

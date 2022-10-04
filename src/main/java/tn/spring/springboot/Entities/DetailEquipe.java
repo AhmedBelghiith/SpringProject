@@ -22,6 +22,10 @@ public class DetailEquipe implements Serializable {
         this.equipe = equipe;
     }
 
+    public DetailEquipe() {
+
+    }
+
 // Constructeur et accesseurs (getters) et mutateurs (setters)
 }
 
