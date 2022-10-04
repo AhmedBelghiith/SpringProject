@@ -3,6 +3,7 @@ package tn.spring.springboot.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table( name = "Universite")
@@ -13,11 +14,15 @@ public class Universite implements Serializable {
     private Long idUniv ;
     private String nomUniv ;
 
-    @OneToMany(mappedBy = "universite")
-    private List<Departement> departements;
-
-    public Universite(String nomUniv, List<Departement> departements) {
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Departement> departements;
+    public Universite(String nomUniv, Set<Departement> departements1) {
         this.nomUniv = nomUniv;
+        this.departements = departements1;
+    }
+
+    public Universite(Set<Departement> departements) {
+
         this.departements = departements;
     }
 

@@ -9,9 +9,18 @@ import java.io.Serializable;
 public class DetailEquipe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="salle")
+    @Column(name = "IdDetailEquipe")
+    private Long IdDetailEquipe;
     private Long salle ;
     private String thematique ;
+    @OneToOne (mappedBy = "detailEquipe")
+    private Equipe equipe;
+
+    public DetailEquipe(Long salle, String thematique, Equipe equipe) {
+        this.salle = salle;
+        this.thematique = thematique;
+        this.equipe = equipe;
+    }
 
 // Constructeur et accesseurs (getters) et mutateurs (setters)
 }

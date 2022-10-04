@@ -1,12 +1,9 @@
 package tn.spring.springboot.Entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table( name = "Equipe")
@@ -19,20 +16,21 @@ public class Equipe implements Serializable {
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
 
-    @ManyToMany
-    @JoinTable( name = "T_Etudiants_Equipes_Associations",
-            joinColumns = @JoinColumn( name = "idEquipe" ),
-            inverseJoinColumns = @JoinColumn( name = "idEtudiant" ) )
-    private List<Etudiant> users = new ArrayList<>();
+    @OneToOne
+    private DetailEquipe detailEquipe;
 
-    public Equipe() {
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
+
+    public Equipe(DetailEquipe detailEquipe) {
+        this.detailEquipe = detailEquipe;
     }
 
-    public Equipe(Long idEquipe, String nomEquipe, Niveau niveau, List<Etudiant> users) {
+    public Equipe(Long idEquipe, String nomEquipe, Niveau niveau, DetailEquipe detailEquipe) {
         this.idEquipe = idEquipe;
         this.nomEquipe = nomEquipe;
         this.niveau = niveau;
-        this.users = users;
+        this.detailEquipe = detailEquipe;
     }
 
     public Long getIdEquipe() {
@@ -59,11 +57,5 @@ public class Equipe implements Serializable {
         this.niveau = niveau;
     }
 
-    public List<Etudiant> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<Etudiant> users) {
-        this.users = users;
-    }
 }

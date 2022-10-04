@@ -3,7 +3,7 @@ package tn.spring.springboot.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table( name = "Etudiant")
@@ -17,24 +17,27 @@ public class Etudiant implements Serializable {
     @Enumerated(EnumType.STRING)
     private Option option;
 
-    @OneToOne(mappedBy = "etudiant")
-    private Contrat contrat;
+    @OneToMany(mappedBy = "etudiant")
+    private Set<Contrat> contrats;
 
     @ManyToOne
     private Departement departement;
 
-    @ManyToMany
-    @JoinTable( name = "T_Etudiants_Equipes_Associations",
-            joinColumns = @JoinColumn( name = "idEtudiant" ),
-            inverseJoinColumns = @JoinColumn( name = "idEquipe" ) )
-    private List<Equipe> equipes = new ArrayList<>();
+    @ManyToMany(mappedBy = "etudiants", cascade = CascadeType.ALL)
+    private Set<Equipe> equipes;
 
-    public Etudiant(Long idEtudiant, String prenomE, String nomE, Option option, Contrat contrat) {
+
+    public Etudiant(Long idEtudiant, String prenomE, String nomE, Option option, Contrat contrat, Departement departement) {
         this.idEtudiant = idEtudiant;
         this.prenomE = prenomE;
         this.nomE = nomE;
         this.option = option;
-        this.contrat = contrat;
+        this.departement = departement;
+    }
+
+    public Etudiant(Departement departement) {
+
+        this.departement = departement;
     }
 
     public Etudiant() {
@@ -73,13 +76,6 @@ public class Etudiant implements Serializable {
         this.option = option;
     }
 
-    public Contrat getContrat() {
-        return contrat;
-    }
-
-    public void setContrat(Contrat contrat) {
-        this.contrat = contrat;
-    }
 
     @Override
     public String toString() {
@@ -88,7 +84,7 @@ public class Etudiant implements Serializable {
                 ", prenomE='" + prenomE + '\'' +
                 ", nomE='" + nomE + '\'' +
                 ", option=" + option +
-                ", contrat=" + contrat +
                 '}';
     }
+    //onettomany unidirectionnel
 }

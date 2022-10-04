@@ -3,7 +3,6 @@ package tn.spring.springboot.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.nio.MappedByteBuffer;
 import java.util.Date;
 
 @Entity
@@ -19,7 +18,7 @@ public class Contrat implements Serializable {
     @Enumerated(EnumType.STRING)
     private Specialite spacialite;
 
-    @OneToOne
+    @ManyToOne
     private Etudiant etudiant;
 
     public Contrat(Long idContrat, Date dateDebutContrat, Date dateFinContrat, Boolean archive, Specialite spacialite, Etudiant etudiant) {
@@ -28,7 +27,6 @@ public class Contrat implements Serializable {
         this.dateFinContrat = dateFinContrat;
         this.archive = archive;
         this.spacialite = spacialite;
-        this.etudiant = etudiant;
     }
 
     public Contrat() {
@@ -75,14 +73,6 @@ public class Contrat implements Serializable {
         this.spacialite = spacialite;
     }
 
-    public Etudiant getEtudiant() {
-        return etudiant;
-    }
-
-    public void setEtudiant(Etudiant etudiant) {
-        this.etudiant = etudiant;
-    }
-
     @Override
     public String toString() {
         return "Contrat{" +
@@ -91,7 +81,6 @@ public class Contrat implements Serializable {
                 ", dateFinContrat=" + dateFinContrat +
                 ", archive=" + archive +
                 ", spacialite=" + spacialite +
-                ", etudiant=" + etudiant +
                 '}';
     }
 }
