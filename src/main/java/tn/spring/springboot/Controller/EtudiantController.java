@@ -17,14 +17,14 @@ public class EtudiantController {
     EtudiantService etudiantService;
 
     //creating a get mapping that retrieves all the etudiants detail from the database
-    @GetMapping("/etudiant")
+    @GetMapping("/etudiants")
     private List<Etudiant> retrieveAllEtudiants() {
         return etudiantService.retrieveAllEtudiants();
     }
 
     //creating a get mapping that retrieves the detail of a specific etudiant
     @GetMapping("/etudiant/{idEtudiant}")
-    private Etudiant retrieveEtudiant(@PathVariable("idEtudiant") int idEtudiant) {
+    private Etudiant retrieveEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
         return etudiantService.getEtudiantById(idEtudiant);
     }
 

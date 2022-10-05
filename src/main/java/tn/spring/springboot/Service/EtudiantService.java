@@ -18,11 +18,11 @@ public class EtudiantService
     public List<Etudiant> retrieveAllEtudiants()
     {
         List<Etudiant> etudiants = new ArrayList<Etudiant>();
-        etudiantRepository.findAll().forEach(etudiant1 -> etudiants.add(etudiant1));
+        etudiantRepository.findAll();
         return etudiants;
     }
     //getting a specific record by using the method findById() of CrudRepository
-    public Etudiant getEtudiantById(int id)
+    public Etudiant getEtudiantById(long id)
     {
         return etudiantRepository.findById(id).get();
     }

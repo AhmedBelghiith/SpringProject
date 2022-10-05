@@ -17,12 +17,47 @@ public class Departement implements Serializable {
     @OneToMany(mappedBy = "departement")
     private Set<Etudiant> etudiants;
 
-    public Departement(String nomDepart, Set<Etudiant> etudiants) {
+    public Departement() {
+    }
+
+    public Departement(Long idDepart, String nomDepart, Set<Etudiant> etudiants) {
+        this.idDepart = idDepart;
         this.nomDepart = nomDepart;
         this.etudiants = etudiants;
     }
 
-    public Departement() {
 
+
+    public Long getIdDepart() {
+        return idDepart;
+    }
+
+    public void setIdDepart(Long idDepart) {
+        this.idDepart = idDepart;
+    }
+
+    public String getNomDepart() {
+        return nomDepart;
+    }
+
+    public void setNomDepart(String nomDepart) {
+        this.nomDepart = nomDepart;
+    }
+
+    public Set<Etudiant> getEtudiants() {
+        return etudiants;
+    }
+
+    public void setEtudiants(Set<Etudiant> etudiants) {
+        this.etudiants = etudiants;
+    }
+
+    @Override
+    public String toString() {
+        return "Departement{" +
+                "idDepart=" + idDepart +
+                ", nomDepart='" + nomDepart + '\'' +
+                ", etudiants=" + etudiants +
+                '}';
     }
 }
