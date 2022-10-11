@@ -2,7 +2,6 @@ package tn.spring.springboot.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Set;
 
 @Entity

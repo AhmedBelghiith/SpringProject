@@ -1,9 +1,7 @@
 package tn.spring.springboot.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tn.spring.springboot.Entities.Etudiant;
 import tn.spring.springboot.Service.EtudiantService;
 
@@ -22,15 +20,43 @@ public class EtudiantController {
 
     //creating a get mapping that retrieves all the etudiants detail from the database
     @GetMapping("/etudiants")
-    private List<Etudiant> retrieveAllEtudiants() {
-        return etudiantService.retrieveAllEtudiants();
+    private List<Etudiant> getAlletudiants() {
+        return etudiantService.getEtudiants();
     }
 
     //creating a get mapping that retrieves the detail of a specific etudiant
     @GetMapping("/etudiant/{idEtudiant}")
-    private Etudiant retrieveEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
+    private Etudiant getEtudiant(@PathVariable("idEtudiant") long idEtudiant) {
         return etudiantService.getEtudiantById(idEtudiant);
     }
+
+    @GetMapping("/EtudiantByPrenomE/{prenomE}")
+    public Etudiant getEtudiantByPrenomE(@PathVariable String prenomE){
+        return etudiantService.getEtudiantByPnemoE(prenomE);
+    }
+
+    @GetMapping("/EtudiantByNomE/{nomE}")
+    public Etudiant getEtudiantByNomE(@PathVariable String nomE){
+        return etudiantService.getEtudiantByNomE(nomE);
+    }
+    @PostMapping("/AddEtudiant")
+    public Etudiant addUser (@RequestBody Etudiant etudiant){
+        return etudiantService.saveEtudiant(etudiant);
+    }
+    @PostMapping("/AddEtudiants")
+    public List<Etudiant> addEtudiants (@RequestBody List<Etudiant> users){
+        return etudiantService.saveEtudiants(users);
+    }
+    @PutMapping("/UpdateEtudiant")
+    public Etudiant updateEtudiant (@RequestBody Etudiant etudiant){
+        return etudiantService.upadateEtudiant(etudiant);
+    }
+
+    @DeleteMapping("/DeleteEtudiant/{idEtudiant}")
+    public String deleteUser (@PathVariable Long idEtudiant){
+        return etudiantService.deleteEtudiant(idEtudiant);
+    }
+
 
 
 }
