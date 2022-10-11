@@ -15,6 +15,10 @@ public class EtudiantController {
     //autowire the EtudiantService class
     @Autowired
     EtudiantService etudiantService;
+    @GetMapping
+    private String sayHi(){
+        return "hello";
+    }
 
     //creating a get mapping that retrieves all the etudiants detail from the database
     @GetMapping("/etudiants")
