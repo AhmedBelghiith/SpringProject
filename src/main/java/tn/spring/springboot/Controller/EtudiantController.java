@@ -40,7 +40,7 @@ public class EtudiantController {
         return etudiantService.getEtudiantByNomE(nomE);
     }
     @PostMapping("/AddEtudiant")
-    public Etudiant addUser (@RequestBody Etudiant etudiant){
+    public Etudiant addEtudiant (@RequestBody Etudiant etudiant){
         return etudiantService.saveEtudiant(etudiant);
     }
     @PostMapping("/AddEtudiants")
@@ -53,7 +53,7 @@ public class EtudiantController {
     }
 
     @DeleteMapping("/DeleteEtudiant/{idEtudiant}")
-    public String deleteUser (@PathVariable Long idEtudiant){
+    public String deleteEtudiant (@PathVariable Long idEtudiant){
         return etudiantService.deleteEtudiant(idEtudiant);
     }
 

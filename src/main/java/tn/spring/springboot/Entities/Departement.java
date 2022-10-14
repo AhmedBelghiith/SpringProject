@@ -1,10 +1,8 @@
 package tn.spring.springboot.Entities;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
-
 @Entity
 @Table( name = "Departement")
 public class Departement implements Serializable {
@@ -60,4 +58,5 @@ public class Departement implements Serializable {
                 ", etudiants=" + etudiants +
                 '}';
     }
+
 }

@@ -1,10 +1,14 @@
 package tn.spring.springboot.Entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
-
+@Getter
+@Setter
 @Entity
 @Table( name = "Universite")
 public class Universite implements Serializable {
@@ -16,19 +20,7 @@ public class Universite implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Departement> departements;
-    public Universite(String nomUniv, Set<Departement> departements1) {
-        this.nomUniv = nomUniv;
-        this.departements = departements1;
-    }
 
-    public Universite(Set<Departement> departements) {
-
-        this.departements = departements;
-    }
-
-    public Universite() {
-
-    }
 
 // Constructeur et accesseurs (getters) et mutateurs (setters)
 }
