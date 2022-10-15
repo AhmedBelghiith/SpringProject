@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class UniversiteService {
     @Autowired
-    static
     UniversiteRepository universiteRepository;
 
     //getting all Universites record by using the method findaAll() of CrudRepository
@@ -20,9 +19,6 @@ public class UniversiteService {
         return universiteRepository.findAll();
     }
     //getting a specific record by using the method findById() of CrudRepository
-    public static Universite getUniversiteById(long idUniversite) {
-        return universiteRepository.findById(idUniversite).get();
-    }
     public Universite saveUniversite(Universite universite){
         return universiteRepository.save(universite);
     }

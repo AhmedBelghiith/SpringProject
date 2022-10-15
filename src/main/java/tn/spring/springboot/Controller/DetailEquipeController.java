@@ -22,11 +22,6 @@ public class DetailEquipeController {
     }
 
     //creating a get mapping that retrieves the detail of a specific detailEquipe
-    @GetMapping("/detailEquipe/{idDetailEquipe}")
-    private DetailEquipe getDetailEquipe(@PathVariable("idDetailEquipe") long idDetailEquipe) {
-        return detailEquipeService.getDetailEquipeById(idDetailEquipe);
-    }
-
     @PostMapping("/AddDetailEquipe")
     public DetailEquipe addDetailEquipe (@RequestBody DetailEquipe detailEquipe){
         return detailEquipeService.saveDetailEquipe(detailEquipe);

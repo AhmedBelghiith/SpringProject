@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class DepartementService {
     @Autowired
-    static
     DepartementRepository departementRepository;
 
     //getting all departements record by using the method findaAll() of CrudRepository
@@ -19,9 +18,6 @@ public class DepartementService {
         return departementRepository.findAll();
     }
     //getting a specific record by using the method findById() of CrudRepository
-    public static Departement getDepartementById(long idDepartement) {
-        return departementRepository.findById(idDepartement).get();
-    }
     public Departement saveDepartement(Departement departement){
         return departementRepository.save(departement);
     }

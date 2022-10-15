@@ -21,11 +21,6 @@ public class DepartementController {
     }
 
     //creating a get mapping that retrieves the detail of a specific departement
-    @GetMapping("/departement/{idDepart}")
-    private Departement getDepartement(@PathVariable("idDepart") long idDepart) {
-        return departementService.getDepartementById(idDepart);
-    }
-
     @PostMapping("/AddDepartement")
     public Departement addDepartement (@RequestBody Departement departement){
         return departementService.saveDepartement(departement);

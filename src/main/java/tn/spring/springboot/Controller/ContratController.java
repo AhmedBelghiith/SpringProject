@@ -12,7 +12,7 @@ import java.util.List;
 public class ContratController {
     //autowire the ContratService class
     @Autowired
-    ContratService contratService;
+    private ContratService contratService;
 
     //creating a get mapping that retrieves all the contrats detail from the database
     @GetMapping("/contrats")
@@ -21,10 +21,6 @@ public class ContratController {
     }
 
     //creating a get mapping that retrieves the detail of a specific contrat
-    @GetMapping("/contrat/{idContrat}")
-    private Contrat getContrat(@PathVariable("idContrat") long idContrat) {
-        return ContratService.getContratById(idContrat);
-    }
     @PostMapping("/AddContrat")
     public Contrat addContrat (@RequestBody Contrat contrat){
         return contratService.saveContrat(contrat);

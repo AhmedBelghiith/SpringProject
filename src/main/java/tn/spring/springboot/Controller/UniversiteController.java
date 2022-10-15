@@ -21,10 +21,6 @@ public class UniversiteController {
     }
 
     //creating a get mapping that retrieves the detail of a specific universite
-    @GetMapping("/universite/{idUniv}")
-    private Universite getUniversite(@PathVariable("idUniv") long idUniv) {
-        return universiteService.getUniversiteById(idUniv);
-    }
     @PostMapping("/AddUniversite")
     public Universite addUniversite (@RequestBody Universite universite){
         return universiteService.saveUniversite(universite);
@@ -38,7 +34,7 @@ public class UniversiteController {
         return universiteService.upadateUniversite(universite);
     }
 
-    @DeleteMapping("/DeleteUniversite/{idUniversite}")
+    @DeleteMapping("/DeleteUniversite/{idUniv}")
     public String deleteUniversite (@PathVariable Long idUniv){
         return universiteService.deleteUniversite(idUniv);
     }

@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class EquipeService {
     @Autowired
-    static
     EquipeRepository equipeRepository;
 
     //getting all Equipes record by using the method findaAll() of CrudRepository
@@ -19,9 +18,6 @@ public class EquipeService {
         return equipeRepository.findAll();
     }
     //getting a specific record by using the method findById() of CrudRepository
-    public static Equipe getEquipeById(long idEquipe) {
-        return equipeRepository.findById(idEquipe).get();
-    }
     public Equipe saveEquipe(Equipe equipe){
         return equipeRepository.save(equipe);
     }

@@ -1,6 +1,7 @@
 package tn.spring.springboot.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 import tn.spring.springboot.Entities.DetailEquipe;
 import tn.spring.springboot.Repository.DetailEquipeRepository;
@@ -11,7 +12,6 @@ import java.util.List;
 @Service
 public class DetailEquipeService {
     @Autowired
-    static
     DetailEquipeRepository detailEquipeRepository;
 
     //getting all detailEquipes record by using the method findaAll() of CrudRepository
@@ -19,9 +19,6 @@ public class DetailEquipeService {
         return detailEquipeRepository.findAll();
     }
     //getting a specific record by using the method findById() of CrudRepository
-    public static DetailEquipe getDetailEquipeById(long idDetailEquipe) {
-        return detailEquipeRepository.findById(idDetailEquipe).get();
-    }
     public DetailEquipe saveDetailEquipe(DetailEquipe detailEquipe){
         return detailEquipeRepository.save(detailEquipe);
     }

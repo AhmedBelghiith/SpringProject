@@ -1,10 +1,14 @@
 package tn.spring.springboot.Entities;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+@Getter
+@Setter
 @Entity
 @Table( name = "Contrat")
 public class Contrat implements Serializable {
@@ -20,67 +24,4 @@ public class Contrat implements Serializable {
 
     @ManyToOne
     private Etudiant etudiant;
-
-    public Contrat(Long idContrat, Date dateDebutContrat, Date dateFinContrat, Boolean archive, Specialite spacialite, Etudiant etudiant) {
-        this.idContrat = idContrat;
-        this.dateDebutContrat = dateDebutContrat;
-        this.dateFinContrat = dateFinContrat;
-        this.archive = archive;
-        this.spacialite = spacialite;
-    }
-
-    public Contrat() {
-
-    }
-
-    public Long getIdContrat() {
-        return idContrat;
-    }
-
-    public void setIdContrat(Long idContrat) {
-        this.idContrat = idContrat;
-    }
-
-    public Date getDateDebutContrat() {
-        return dateDebutContrat;
-    }
-
-    public void setDateDebutContrat(Date dateDebutContrat) {
-        this.dateDebutContrat = dateDebutContrat;
-    }
-
-    public Date getDateFinContrat() {
-        return dateFinContrat;
-    }
-
-    public void setDateFinContrat(Date dateFinContrat) {
-        this.dateFinContrat = dateFinContrat;
-    }
-
-    public Boolean getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Boolean archive) {
-        this.archive = archive;
-    }
-
-    public Specialite getSpacialite() {
-        return spacialite;
-    }
-
-    public void setSpacialite(Specialite spacialite) {
-        this.spacialite = spacialite;
-    }
-
-    @Override
-    public String toString() {
-        return "Contrat{" +
-                "idContrat=" + idContrat +
-                ", dateDebutContrat=" + dateDebutContrat +
-                ", dateFinContrat=" + dateFinContrat +
-                ", archive=" + archive +
-                ", spacialite=" + spacialite +
-                '}';
-    }
 }
