@@ -41,5 +41,9 @@ public class DetailEquipeController {
     }
 
 
+    @GetMapping("/findByThematique/{thematique}")
+    public List<DetailEquipe> findByThematique(@PathVariable(required = false,name = "thematique") String thematique){
+        return detailEquipeService.findByThematiqueLike(thematique);
+    }
 
 }

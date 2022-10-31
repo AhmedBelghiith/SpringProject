@@ -2,6 +2,7 @@ package tn.spring.springboot.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.spring.springboot.Entities.Equipe;
 import tn.spring.springboot.Entities.Etudiant;
 import tn.spring.springboot.Repository.EtudiantRepository;
 
@@ -17,6 +18,7 @@ public class EtudiantService
     public List<Etudiant> getEtudiants(){
         return etudiantRepository.findAll();
     }
+
     //getting a specific record by using the method findById() of CrudRepository
     public Etudiant getEtudiantById(long id)
     {

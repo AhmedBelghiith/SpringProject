@@ -39,4 +39,9 @@ public class DetailEquipeService {
     }
 
 
+    public List<DetailEquipe> findByThematiqueLike(String thematique){
+        return detailEquipeRepository.findByThematiqueLike(thematique);
+    }
+
+
 }

@@ -2,6 +2,7 @@ package tn.spring.springboot.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.spring.springboot.Entities.Equipe;
 import tn.spring.springboot.Entities.Etudiant;
 import tn.spring.springboot.Service.EtudiantService;
 
