@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface EquipeRepository extends JpaRepository<Equipe,Long> {
     List<Equipe> findEquipeByEtudiantsIdEtudiant(long IdEtudiant);
-    List<Equipe> findEquipeByEtudiantsIdEtudiantAndDetailEquipeThematiqueNotNull(long IdEtudiant);
+    //List<Equipe> findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull(long IdEtudiant);
 
 
-    //List<Equipe> findEquipeByEtudiantsIdEtudiantAndEtudiantDepartementIdDepart (long idEtudiant, long idDepart);
+
+    List<Equipe> findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart (long idEtudiant , long idDepart);
 }

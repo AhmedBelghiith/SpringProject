@@ -47,15 +47,15 @@ public class EquipeController {
 
         return  equipeService.findEquipeByEtudiantsIdEtudiant(idEtudiant);
     }
-    @GetMapping("/findEquipeByEtudiantsIdEtudiantAndDetailEquipeThematiqueNotNull/{idEtudiant}")
-    public List<Equipe> findByEtudiantAndThematiquenotnull(@PathVariable("idEtudiant") Long idEtudiant){
+    /*@GetMapping("/findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull/{idEtudiant}")
+    public List<Equipe> findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull(@PathVariable("idEtudiant") Long idEtudiant){
 
-        return  equipeService.findEquipeByEtudiantsIdEtudiantAndDetailEquipeThematiqueNotNull(idEtudiant);
-    }
-
-   /* @GetMapping("/findEquipeByEtudiantsIdEtudiantAndEtudiantDepartementIdDepart/{idEtudiant, idDepartement")
-    public List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(@PathVariable("idEtudiant") Long idEtudiant,@PathVariable("idDepart") Long idDepart){
-
-        return  equipeService.findEquipeByEtudiantsIdEtudiantAndEtudiantDepartementIdDepart(idEtudiant,idDepart);
+        return  equipeService.findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull(idEtudiant);
     }*/
+
+    @GetMapping("/findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart/{idEtudiant}/{idDepart}")
+    public List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(@PathVariable("idEtudiant") Long idEtudiant , @PathVariable("idDepart") Long idDepart){
+
+        return  equipeService.findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart(idEtudiant , idDepart);
+    }
 }

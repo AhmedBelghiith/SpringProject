@@ -1,9 +1,18 @@
 package tn.spring.springboot.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table( name = "Equipe")
 public class Equipe implements Serializable {
@@ -16,70 +25,10 @@ public class Equipe implements Serializable {
     private Niveau niveau;
 
     @OneToOne
+    @JsonIgnore
     private DetailEquipe detailEquipe;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Etudiant> etudiants;
-
-    public Equipe() {
-    }
-
-    public Equipe(Long idEquipe, String nomEquipe, Niveau niveau, DetailEquipe detailEquipe, Set<Etudiant> etudiants) {
-        this.idEquipe = idEquipe;
-        this.nomEquipe = nomEquipe;
-        this.niveau = niveau;
-        this.detailEquipe = detailEquipe;
-        this.etudiants = etudiants;
-    }
-
-    public Long getIdEquipe() {
-        return idEquipe;
-    }
-
-    public void setIdEquipe(Long idEquipe) {
-        this.idEquipe = idEquipe;
-    }
-
-    public String getNomEquipe() {
-        return nomEquipe;
-    }
-
-    public void setNomEquipe(String nomEquipe) {
-        this.nomEquipe = nomEquipe;
-    }
-
-    public Niveau getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(Niveau niveau) {
-        this.niveau = niveau;
-    }
-
-    public DetailEquipe getDetailEquipe() {
-        return detailEquipe;
-    }
-
-    public void setDetailEquipe(DetailEquipe detailEquipe) {
-        this.detailEquipe = detailEquipe;
-    }
-
-    public Set<Etudiant> getEtudiants() {
-        return etudiants;
-    }
-
-    public void setEtudiants(Set<Etudiant> etudiants) {
-        this.etudiants = etudiants;
-    }
-
-    @Override
-    public String toString() {
-        return "Equipe{" +
-                "idEquipe=" + idEquipe +
-                ", nomEquipe='" + nomEquipe + '\'' +
-                ", niveau=" + niveau +
-                ", detailEquipe=" + detailEquipe +
-                ", etudiants=" + etudiants +
-                '}';
-    }
 }

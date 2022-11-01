@@ -48,16 +48,16 @@ public class EquipeService {
 
         return equipeRepository.findEquipeByEtudiantsIdEtudiant(IdEtudiant);
     }
-    public List<Equipe> findEquipeByEtudiantsIdEtudiantAndDetailEquipeThematiqueNotNull(long IdEtudiant) {
+    /*public List<Equipe> findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull(long IdEtudiant) {
         if ((this.detailEquipeRepository.findByThematiqueLike(detailEquipe.getThematique())) != null) {
 
-            return equipeRepository.findEquipeByEtudiantsIdEtudiantAndDetailEquipeThematiqueNotNull(IdEtudiant);
+            return equipeRepository.findEquipeByEtudiantIdEtudiantAndDetailEquipeThematiqueNotNull(IdEtudiant);
         } else return null;
-    }
-
-    /*public List<Equipe> findEquipeByEtudiantsIdEtudiantAndEtudiantDepartementIdDepart (long idEtudiant, long idDepart){
-        return equipeRepository.findEquipeByEtudiantsIdEtudiantAndEtudiantDepartementIdDepart(idEtudiant,idDepart);
     }*/
+
+    public List<Equipe> findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart (long idEtudiant , long idDepart){
+        return equipeRepository.findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart(idEtudiant , idDepart);
+    }
 
 
 
