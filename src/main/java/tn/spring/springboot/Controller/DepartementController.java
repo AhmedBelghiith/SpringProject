@@ -3,6 +3,8 @@ package tn.spring.springboot.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.spring.springboot.Entities.Departement;
+import tn.spring.springboot.Entities.Etudiant;
+import tn.spring.springboot.Entities.Option;
 import tn.spring.springboot.Service.DepartementService;
 
 import java.util.List;
@@ -41,4 +43,8 @@ public class DepartementController {
 
 
 
+    @GetMapping("/departement/{op}")
+    private List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("op") Option op) {
+        return departementService.retrieveDepartementByOptionEtudiant(op);
+    }
 }

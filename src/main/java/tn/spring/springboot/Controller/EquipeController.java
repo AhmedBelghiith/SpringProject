@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.spring.springboot.Entities.Equipe;
 import tn.spring.springboot.Entities.Etudiant;
+import tn.spring.springboot.Entities.Niveau;
 import tn.spring.springboot.Service.EquipeService;
 
 
@@ -57,5 +58,16 @@ public class EquipeController {
     public List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(@PathVariable("idEtudiant") Long idEtudiant , @PathVariable("idDepart") Long idDepart){
 
         return  equipeService.findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart(idEtudiant , idDepart);
+    }
+
+    @GetMapping("/equipe/{niveau}")
+    public List<Equipe> retriveEquipeByNiveau(@PathVariable("niveau") Niveau niveau){
+     return equipeService.retriveEquipeByNiveau(niveau);
+    }
+
+    @DeleteMapping("/DeleteEquipe/{niveau}")
+    public String deleteEquipeByNiveau (@PathVariable Niveau niveau){
+        return equipeService.deleteEquipeByNiveau(niveau);
+
     }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.spring.springboot.Entities.DetailEquipe;
 import tn.spring.springboot.Entities.Equipe;
+import tn.spring.springboot.Entities.Niveau;
 import tn.spring.springboot.Repository.DetailEquipeRepository;
 import tn.spring.springboot.Repository.EquipeRepository;
 
@@ -59,6 +60,13 @@ public class EquipeService {
         return equipeRepository.findEquipeByEtudiantsIdEtudiantAndEtudiantsDepartementIdDepart(idEtudiant , idDepart);
     }
 
+    public List<Equipe> retriveEquipeByNiveau (Niveau niveau){
+        return equipeRepository.retriveEquipeByNiveau(niveau);
+    }
 
+    public String deleteEquipeByNiveau(Niveau niveau){
+        equipeRepository.deleteEquipeByNiveau(niveau);
+        return "Equipe supprimé !" +niveau;
+    }
 
 }

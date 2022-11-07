@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.spring.springboot.Entities.Equipe;
 import tn.spring.springboot.Entities.Etudiant;
+import tn.spring.springboot.Entities.Option;
 import tn.spring.springboot.Service.EtudiantService;
 
 import java.util.List;
@@ -59,5 +60,9 @@ public class EtudiantController {
     }
 
 
+    @PutMapping("/updateEtudiantByOption/{option}/{idEtudiant}")
+    public Etudiant updateEtudiantByOption(@PathVariable Option option,@PathVariable Long idEtudiant){
+        return etudiantService.updateEtudiantByOption(option, idEtudiant);
+    }
 
 }

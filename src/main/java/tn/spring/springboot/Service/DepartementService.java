@@ -3,8 +3,8 @@ package tn.spring.springboot.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.spring.springboot.Entities.Departement;
+import tn.spring.springboot.Entities.Option;
 import tn.spring.springboot.Repository.DepartementRepository;
-
 import java.util.List;
 
 //defining the business logic
@@ -35,6 +35,10 @@ public class DepartementService {
         existingDepartement.setEtudiants(departement.getEtudiants());
 
         return departementRepository.save(existingDepartement);
+    }
+
+    public List<Departement> retrieveDepartementByOptionEtudiant(Option op){
+        return departementRepository.retrieveDepartementByOptionEtudiant(op);
     }
 
 

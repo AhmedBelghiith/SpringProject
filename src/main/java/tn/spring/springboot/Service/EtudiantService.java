@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.spring.springboot.Entities.Equipe;
 import tn.spring.springboot.Entities.Etudiant;
+import tn.spring.springboot.Entities.Option;
 import tn.spring.springboot.Repository.EtudiantRepository;
 
 import java.util.List;
@@ -46,6 +47,13 @@ public class EtudiantService
         existingEtudiant.setNomE(etudiant.getNomE());
         existingEtudiant.setOption(etudiant.getOption());
         return etudiantRepository.save(existingEtudiant);
+    }
+
+    public Etudiant updateEtudiantByOption(Option option, Long idEtudiant){
+        Etudiant existingEtudiant = etudiantRepository.findById(idEtudiant).orElse(null);
+        existingEtudiant.setOption(option);
+        return etudiantRepository.save(existingEtudiant);
+
     }
 
 
